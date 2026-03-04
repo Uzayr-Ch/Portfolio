@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: ".",
-  base: "/portfolio/", // Change to "/" if deploying to custom domain
+  base: "/Portfolio/", // GitHub repo name is Portfolio (capital P)
   build: {
     outDir: "dist",
     emptyOutDir: true,
