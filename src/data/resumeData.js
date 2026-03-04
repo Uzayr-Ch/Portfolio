@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const resumeData = {
   personalInfo: {
     name: "Muhammad Uzair Warraich",
@@ -23,13 +25,13 @@ export const resumeData = {
       institution:
         "Pakistan Institute of Engineering and Applied Sciences (PIEAS), Islamabad",
       period: "2023 — 2027",
-      logo: "/pieas logo.png",
+      logo: `${BASE_URL}pieas logo.png`,
     },
     {
       degree: "FSC Pre-Engineering",
       institution: "Punjab Group of Colleges, Rawalpindi",
       period: "2021 — 2023",
-      logo: "/pgc logo.png",
+      logo: `${BASE_URL}pgc logo.png`,
     },
   ],
 
