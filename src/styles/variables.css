@@ -1,0 +1,66 @@
+/* ============================================================
+   DESIGN TOKENS — Dark Navy + Cyan (Lovable-inspired)
+   ============================================================ */
+:root {
+  /* ── Canvas ── */
+  --bg: hsl(222, 47%, 6%);
+  --bg-card: hsl(222, 47%, 9%);
+  --bg-card-2: hsl(222, 47%, 9%);
+  --bg-input: hsl(222, 30%, 18%);
+
+  /* ── Borders ── */
+  --border: hsl(222, 30%, 18%);
+
+  /* ── Text ── */
+  --text: hsl(210, 40%, 96%);
+  --text-muted: hsl(215, 20%, 55%);
+  --text-dim: hsl(215, 20%, 55%);
+
+  /* ── Accent ── */
+  --cyan: hsl(187, 100%, 50%);
+  --blue-accent: hsl(217, 91%, 60%);
+  --navy-deep: hsl(222, 47%, 4%);
+
+  --cyan-glow: hsla(187, 100%, 50%, 0.15);
+  --cyan-glow-sm: hsla(187, 100%, 50%, 0.05);
+
+  /* ── Gradients ── */
+  --text-gradient: linear-gradient(to right, hsl(187, 100%, 50%), hsl(217, 91%, 60%));
+  --grad-text: linear-gradient(135deg, hsl(210, 40%, 96%), hsl(215, 20%, 55%));
+  --grad-btn: var(--cyan);
+  --grad-card-top: linear-gradient(180deg, hsla(210, 40%, 96%, 0.03) 0%, transparent 60%);
+
+  /* ── Fonts ── */
+  --font-sans: 'Outfit', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Spacing ── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+
+  /* ── Radius ── */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-full: 9999px;
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --dur: 250ms;
+  --dur-slow: 500ms;
+
+  /* ── Nav height ── */
+  --nav-h: 70px;
+}
