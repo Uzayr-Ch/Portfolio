@@ -1518,7 +1518,20 @@ if(fine&&!reduce)document.querySelectorAll('.mag').forEach(b=>{
 // ===== CV viewer: opens in-page from every CV link, Esc or Close to leave =====
 document.addEventListener('DOMContentLoaded',function(){
   const m = document.getElementById('npCv'), f = m.querySelector('iframe'), PDF = 'Muhammad_Uzair_Warraich_CV.pdf';
-  const open = () => { if (!f.getAttribute('src')) f.src = PDF + '#toolbar=0&navpanes=0&view=FitH'; m.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('npCvClose').focus(); };
+  const open = () => {
+    if (innerWidth < 768) {
+      window.open(PDF, '_blank');
+      return;
+    }
+    m.hidden = false;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      if (!f.getAttribute('src')) {
+        f.src = PDF;
+      }
+      document.getElementById('npCvClose').focus();
+    }, 60);
+  };
   const close = () => { m.hidden = true; document.body.style.overflow = ''; if (document.fullscreenElement) document.exitFullscreen(); };
   document.querySelectorAll('[data-cv]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); open(); }));
   document.getElementById('npCvClose').addEventListener('click', close);
