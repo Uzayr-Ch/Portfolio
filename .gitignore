@@ -29,3 +29,12 @@ logs/
 # OS
 Thumbs.db
 .DS_Store
+
+# Local scratch assets
+screenshots/
+MAKE IT AND DELETE BEFORE PUSHING/
+Firefly_RemoveBackground.png
+*.html
+!index.html
+*YOU CAN USE THIS PIC*
+

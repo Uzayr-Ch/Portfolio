@@ -1,83 +1,80 @@
-# Modern Developer Portfolio
+# Muhammad Uzair Warraich — AI Engineer & Backend Developer
 
-A scalable, modular, and privacy-focused developer portfolio built with Vanilla JS, Native Web Components, and Vite. This project extracts the resume data directly into a JSON structure, parses it, and dynamically renders it using reusable custom elements.
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-blue.svg)](https://uzayr-ch.github.io/Portfolio/)
+[![Netlify Status](https://img.shields.io/badge/Deployment-Netlify-00C7B7.svg)](https://app.netlify.com/)
 
-## 1. Project Overview & Deliverables
+A high-performance, dark-mode portfolio built with native web standards and Vite. Designed to showcase production-grade AI systems, LLM fine-tuning, RAG retrieval architectures, and computer vision backends.
 
-This project satisfies the following requirements:
+---
 
-1. **Full Project Code**: Provided in this repository.
-2. **Folder Structure**: Clean, modular setup isolating components, data, and global styles.
-3. **Tech Stack Explanation**: See below.
-4. **Setup Instructions**: Easily run locally with standard npm commands.
-5. **Deployment Instructions**: Ready for static site hosts like Vercel, Netlify, or GitHub Pages.
+## ⚡ Featured Projects & Case Studies
 
-## 2. Folder Structure
+### 1. Sovereign QMS (Featured Platform)
+- **Problem**: Writing ISO 9001 and ISO 14001 compliance packs takes consultants weeks, and enterprises cannot paste proprietary data into public AI models.
+- **Solution**: Multi-standard rule engine that decides applicability deterministically, uses a local/hosted LLM only for narrative drafting, and maintains an immutable audit trail for every document revision.
+- **Outcome**: 48 controlled documents across ISO 9001 (30) & ISO 14001 (18), with 330+ automated tests running offline with mocked LLMs.
+- **Tech**: Python, FastAPI, SQLAlchemy, ChromaDB, Ollama, Groq, React 18, Docker.
 
-```text
-portfolio/
-├── index.html                 # Entry HTML file with SEO and Accessibility metadata
-├── package.json               # Project metadata and npm scripts
-├── vite.config.js             # Vite bundler configuration
-└── src/
-    ├── main.js                # App bootstrap and layout assembly
-    ├── data/
-    │   └── resumeData.js      # Structured JSON-like data extracted directly from the CV
-    ├── components/
-    │   ├── BaseComponent.js   # Wrapper for shadow DOM boilerplate
-    │   ├── HeaderInfo.js      # Custom element for personal & contact info
-    │   ├── SectionHeader.js   # Reusable section title component
-    │   ├── ProjectCard.js     # Component for project details and lists
-    │   └── SkillTags.js       # Component rendering categorized skills
-    └── styles/
-        ├── variables.css      # CSS variables (colors, fonts, spacing, dark mode)
-        └── main.css           # Global resets and structural styles
-```
+### 2. AI Factory Safety Monitoring
+- Real-time YOLOv8 surveillance analytics detecting PPE and hazardous zone safety violations.
+- Cryptographically verifiable SHA-256 audit logs with automated escalation workflows.
+- **Tech**: YOLOv8, OpenCV, Streamlit, SQLite.
+- [GitHub Repository](https://github.com/Uzayr-Ch/compliance-policy-detection)
 
-## 3. Tech Stack Explanation
+### 3. Content-Based Image Retrieval (CBIR)
+- Visual search engine combining ResNet50 and Vision Transformer (ViT-B/16) embeddings.
+- Indexed with FAISS vector database yielding a 2.5× average retrieval speedup.
+- **Tech**: ResNet50, ViT, FAISS, PyTorch.
+- [GitHub Repository](https://github.com/Uzayr-Ch/CBIR_Project_Advanced)
 
-- **Vanilla JavaScript & Native Web Components**: Chosen to provide a "clean component system" without heavily relying on external dependencies or heavy frameworks like React or Angular. This ensures maximum privacy, fast parsing times, and native browser performance.
-- **Vite**: The build tool of choice. It provides an ultra-fast local development server and optimized, minified production builds. Since the application ships mostly standard HTML/JS/CSS, Vite makes chunking and asset delivery highly performant.
-- **Vanilla CSS (with CSS Variables)**: Ensures the styling is modular and maintainable without tying the project to frameworks like Tailwind or Bootstrap. It fully supports Dark Mode integration natively.
+### 4. Crop Disease Detector
+- VGG19 transfer-learning pipeline trained across 13,000+ leaf images spanning 14 disease classes.
+- Integrated Grad-CAM neural activation heatmaps for visual lesion localization.
+- **Tech**: VGG19, PyTorch, Transfer Learning, Data Augmentation.
+- [GitHub Repository](https://github.com/Uzayr-Ch/Crop-Disease-Detector)
 
-## 4. Setup Instructions
+### 5. Multi-Agent Adaptive E-Learning System
+- Six Belief-Desire-Intention (BDI) agents orchestrating personalized review schedules using Bayesian Knowledge Tracing (BKT).
+- Generates dynamic hints and explanations with spaced repetition for +25% knowledge retention.
+- **Tech**: BDI Multi-Agent, BKT, LLM Orchestration.
+- [GitHub Repository](https://github.com/Uzayr-Ch/Multi-Agent_Adaptive_E-Learning_System_With_Knowledge_Tracing)
 
-To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed, then run the following commands in your terminal:
+---
 
-1. **Navigate to the project directory:**
-   ```bash
-   cd portfolio
-   ```
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-4. Open the provided `localhost` URL (usually `http://localhost:5173`) in your browser.
+## 🛠️ Technical Stack
 
-## 5. Deployment Instructions
+- **AI & Deep Learning**: PyTorch, LLM Fine-Tuning (Mistral / Llama 3), RAG Architectures, YOLOv8, OpenCV, FAISS, ChromaDB, Ollama.
+- **Backend & APIs**: Python, FastAPI, SQLAlchemy, PostgreSQL, Supabase, Docker, Git.
+- **Frontend & UI**: Vanilla CSS, Modern JavaScript, React 18, Vite, Responsive Mobile Design.
 
-The project is optimized for fast loading and can be deployed easily as a static site.
+---
 
-**To create a production build:**
+## 🚀 Local Development & Build
 
-```bash
+`ash
+# Clone the repository
+git clone https://github.com/Uzayr-Ch/Portfolio.git
+
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Create optimized production bundle
 npm run build
-```
+`
 
-This will generate an optimized `dist/` folder. You can test it locally via `npm run preview`.
+---
 
-**Deployment Options:**
+## 📬 Contact & Connect
 
-- **Vercel / Netlify**: Connect your GitHub repository and set the build command to `npm run build` and the output directory to `dist`. It will automatically deploy and host effortlessly.
-- **GitHub Pages**: You can upload the generated `dist/` folder directly to a `gh-pages` branch, or use GitHub Actions to run the build step and deploy automatically.
+- **Email**: [uzair2145819@gmail.com](mailto:uzair2145819@gmail.com)
+- **LinkedIn**: [linkedin.com/in/uzyr-chaudhary](https://linkedin.com/in/uzyr-chaudhary)
+- **GitHub**: [github.com/Uzayr-Ch](https://github.com/Uzayr-Ch)
+- **Resume / CV**: [Muhammad_Uzair_Warraich_CV.pdf](Muhammad_Uzair_Warraich_CV.pdf)
 
-## Highlights
+---
 
-- **SEO Ready**: Proper schema and meta tags (`og:title`, `description`) are integrated.
-- **Accessibility**: Uses semantic HTML5 elements (`<article>`, `<header>`, `<main>`, `<section>`).
-- **Responsive**: Fully adjusts layout for mobile, tablet, and desktop viewports, prioritizing readable typography.
-- **Print Styles**: Included standard print media queries so exporting the website to PDF looks identical to a standard resume.
+Licensed under the [MIT License](LICENSE).
