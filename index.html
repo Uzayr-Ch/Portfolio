@@ -17,10 +17,10 @@
 {"@context":"https://schema.org","@type":"Person","name":"Muhammad Uzair Warraich","jobTitle":"AI Engineer","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressCountry":"PK"},"email":"mailto:uzair2145819@gmail.com","alumniOf":{"@type":"CollegeOrUniversity","name":"Pakistan Institute of Engineering and Applied Sciences (PIEAS)"},"knowsAbout":["Large Language Models","Retrieval-Augmented Generation","FastAPI","Computer Vision","Machine Learning"],"sameAs":["https://github.com/Uzayr-Ch","https://linkedin.com/in/uzyr-chaudhary"]}
 </script>
 <link rel="prefetch" href="Muhammad_Uzair_Warraich_CV.pdf">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* fonts are served from this site (variable latin files), so no third-party request blocks the first paint */
+@font-face{font-family:"Schibsted Grotesk";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/jetbrains-mono-latin.woff2) format("woff2")}
 :root{--black:#000;--white:#F5F5F3;--ultra:#14215C;--ember:#FF6A3D;--grey:#86868B;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--ease:cubic-bezier(.2,.8,.2,1);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
 *,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
@@ -1574,6 +1574,8 @@ document.addEventListener('DOMContentLoaded',function(){
     pages.innerHTML = '';
     try {
       if (!window.pdfjsLib) await loadScript(PDFJS + '/pdf.min.js');
+      // loading the worker script as a plain script makes pdf.js run it on the main thread; the Web Worker route hangs in current Chrome/Edge
+      if (!window.pdfjsWorker) await loadScript(PDFJS + '/pdf.worker.min.js');
       const lib = window.pdfjsLib;
       lib.GlobalWorkerOptions.workerSrc = PDFJS + '/pdf.worker.min.js';
       const doc = await lib.getDocument(PDF).promise;
