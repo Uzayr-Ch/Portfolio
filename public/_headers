@@ -1,5 +1,8 @@
 /assets/*
   Cache-Control: public, max-age=2592000
 
+/cv/*
+  Cache-Control: public, max-age=86400
+
 /*.pdf
   Cache-Control: public, max-age=3600

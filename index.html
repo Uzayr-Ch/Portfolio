@@ -16,7 +16,6 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Muhammad Uzair Warraich","jobTitle":"AI Engineer","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressCountry":"PK"},"email":"mailto:uzair2145819@gmail.com","alumniOf":{"@type":"CollegeOrUniversity","name":"Pakistan Institute of Engineering and Applied Sciences (PIEAS)"},"knowsAbout":["Large Language Models","Retrieval-Augmented Generation","FastAPI","Computer Vision","Machine Learning"],"sameAs":["https://github.com/Uzayr-Ch","https://linkedin.com/in/uzyr-chaudhary"]}
 </script>
-<link rel="prefetch" href="Muhammad_Uzair_Warraich_CV.pdf">
 <style>
 /* fonts are served from this site (variable latin files), so no third-party request blocks the first paint */
 @font-face{font-family:"Schibsted Grotesk";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin.woff2) format("woff2")}
@@ -617,7 +616,8 @@ nav .links .cvp::after{display:none}
 .np-cv-tools .esc{color:#5E7068}
 .np-cv-tools .esc:hover{color:var(--mint)}
 .np-cv-pages{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px;background:#0A0F0D;-webkit-overflow-scrolling:touch}
-.np-cv-pages canvas{display:block;max-width:100%;height:auto;background:#fff;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.np-cv-pages img{display:none;width:min(100%,860px);height:auto;background:#fff;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.np-cv-pages img.ok{display:block}
 .np-cv-msg{margin:auto;font:500 14px 'Schibsted Grotesk',sans-serif;color:#C5D6CD;text-align:center}
 .np-cv-msg a{color:var(--mint)}
 
@@ -1200,7 +1200,7 @@ nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
       <p class="reveal" id="reveal">I build LLM systems that leave the notebook and do real work, reliably, inside real companies.</p>
       <div class="cta" id="cta"><a class="btn mag" href="#work">See my projects <svg class="ic mv"><use href="#i-arrow-right"/></svg></a><a class="btn ghost mag" href="Muhammad_Uzair_Warraich_CV.pdf" download data-cv>View CV</a></div>
     </div>
-    <figure class="np-photo"><img src="assets/uzair-cutout.webp" alt="Muhammad Uzair Warraich" width="820" height="1093"></figure>
+    <figure class="np-photo"><img src="assets/uzair-cutout.webp" alt="Muhammad Uzair Warraich" width="640" height="853" fetchpriority="high"></figure>
   </div>
   <div class="cue" id="cue" aria-hidden="true"><b></b>scroll to read</div>
 </div></header>
@@ -1229,7 +1229,7 @@ nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
       </svg>
     </div>
     <div class="np-about-main">
-      <div class="np-about-top"><div class="np-avatar"><img src="assets/uzair-cutout.webp" alt="Muhammad Uzair Warraich" width="820" height="1093"></div><h2 id="about-h" class="np-pill">About</h2></div>
+      <div class="np-about-top"><div class="np-avatar"><img src="assets/uzair-cutout.webp" alt="Muhammad Uzair Warraich" width="640" height="853" loading="lazy"></div><h2 id="about-h" class="np-pill">About</h2></div>
       <p class="fillp"><span id="fillp">I build the parts of AI that come after the demo.</span></p>
       <p class="np-about-sub">Final-year Computer &amp; Information Sciences student at PIEAS. Across two AI engineering internships I've built an LLM product from scratch and helped fine-tune a multilingual Mistral model.</p>
       <div class="np-about-cta"><a class="btn mag" href="#case-study">Explore case study <svg class="ic mv"><use href="#i-arrow-right"/></svg></a><a class="btn ghost mag" href="#contact">Get in touch</a></div>
@@ -1361,14 +1361,14 @@ nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   <div class="np-edu-head"><p class="np-tag">Academic background</p><h2 id="edu-h">Education</h2><p class="lede">A strong engineering foundation, from pre-engineering to computer science at one of Pakistan's top technical universities.</p></div>
   <div class="np-edu-grid">
     <article class="np-edu-card" id="ed1">
-      <div class="np-edu-top"><img src="assets/pieas-logo.png" alt="PIEAS logo"><span class="np-edu-when">Sep 2023 – May 2027</span></div>
+      <div class="np-edu-top"><img src="assets/pieas-logo.webp" alt="PIEAS logo" width="58" height="58" loading="lazy"><span class="np-edu-when">Sep 2023 – May 2027</span></div>
       <h3>BS Computer &amp; Information Sciences</h3>
       <p class="np-edu-inst">Pakistan Institute of Engineering and Applied Sciences (PIEAS), Islamabad</p>
       <div class="np-edu-score"><span class="num" id="gpa">0.00</span><small>CGPA / 4.00</small></div>
       <div class="np-edu-prog"><div class="dp-row"><span>Degree progress</span><span id="dpPct">0% complete</span></div><div class="dp-bar"><i id="dpBar"></i></div></div>
     </article>
     <article class="np-edu-card" id="ed2">
-      <div class="np-edu-top"><img src="assets/pgc-logo.png" alt="Punjab Group of Colleges logo"><span class="np-edu-when">2021 – 2023</span></div>
+      <div class="np-edu-top"><img src="assets/pgc-logo.webp" alt="Punjab Group of Colleges logo" width="58" height="58" loading="lazy"><span class="np-edu-when">2021 – 2023</span></div>
       <h3>FSc Pre-Engineering</h3>
       <p class="np-edu-inst">Punjab Group of Colleges, Federal Board of Intermediate and Secondary Education (FBISE)</p>
       <div class="np-edu-score"><span class="num" id="fsc">0</span><small>marks / 1100</small></div>
@@ -1564,37 +1564,17 @@ if(fine&&!reduce)document.querySelectorAll('.mag').forEach(b=>{
 // ===== CV viewer: opens in-page from every CV link, Esc or Close to leave =====
 document.addEventListener('DOMContentLoaded',function(){
   const m = document.getElementById('npCv'), pages = document.getElementById('npCvPages'), PDF = 'Muhammad_Uzair_Warraich_CV.pdf';
-  const PDFJS = 'vendor';  // pdf.js 3.11.174, served from this site
-  const loadScript = src => new Promise((ok, fail) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail; document.head.appendChild(s); });
-  let rendered = false;
-  // draws each PDF page onto a canvas, so the viewer shows no browser toolbar; library loads on first open only
-  const renderCv = async () => {
-    if (rendered) return;
-    rendered = true;
-    pages.innerHTML = '';
-    try {
-      if (!window.pdfjsLib) await loadScript(PDFJS + '/pdf.min.js');
-      // loading the worker script as a plain script makes pdf.js run it on the main thread; the Web Worker route hangs in current Chrome/Edge
-      if (!window.pdfjsWorker) await loadScript(PDFJS + '/pdf.worker.min.js');
-      const lib = window.pdfjsLib;
-      lib.GlobalWorkerOptions.workerSrc = PDFJS + '/pdf.worker.min.js';
-      const doc = await lib.getDocument(PDF).promise;
-      const width = Math.min(pages.clientWidth - 36, 900), dpr = Math.min(devicePixelRatio || 1, 2);
-      for (let n = 1; n <= doc.numPages; n++) {
-        const page = await doc.getPage(n);
-        const base = page.getViewport({ scale: 1 });
-        const vp = page.getViewport({ scale: (width / base.width) * dpr });
-        const canvas = document.createElement('canvas');
-        canvas.width = vp.width;
-        canvas.height = vp.height;
-        canvas.style.width = width + 'px';
-        pages.appendChild(canvas);
-        await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
-      }
-    } catch (err) {
-      rendered = false;
-      pages.innerHTML = '<p class="np-cv-msg">Preview could not load. <a href="' + PDF + '" target="_blank" rel="noopener">Open the PDF</a></p>';
-    }
+  const note = document.getElementById('npCvNote');
+  let requested = false;
+  // the preview is two small pre-rendered page images (public/cv), fetched on first open only; the real PDF stays behind Download / Open in new tab
+  const showCv = () => {
+    if (requested) return;
+    requested = true;
+    pages.querySelectorAll('img[data-src]').forEach(im => {
+      im.onload = () => { im.classList.add('ok'); note.hidden = true; };
+      im.onerror = () => { note.innerHTML = 'Preview could not load. <a href="' + PDF + '" target="_blank" rel="noopener">Open the PDF</a>'; requested = false; };
+      im.src = im.dataset.src;
+    });
   };
   const open = () => {
     if (innerWidth < 768) {
@@ -1605,7 +1585,7 @@ document.addEventListener('DOMContentLoaded',function(){
     document.body.style.overflow = 'hidden';
     setTimeout(() => {
       document.getElementById('npCvClose').focus();
-      renderCv();
+      showCv();
     }, 60);
   };
   const close = () => { m.hidden = true; document.body.style.overflow = ''; if (document.fullscreenElement) document.exitFullscreen(); };
@@ -1683,7 +1663,11 @@ document.getElementById('skToggle').addEventListener('click', e => {
         <button type="button" id="npCvClose" aria-label="Close (Esc)">Close</button>
       </div>
     </div>
-    <div class="np-cv-pages" id="npCvPages" aria-label="Resume pages"></div>
+    <div class="np-cv-pages" id="npCvPages" aria-label="Resume pages">
+      <p class="np-cv-msg" id="npCvNote">Loading CV…</p>
+      <img data-src="cv/page-1.webp" alt="Resume, page 1" width="1100" height="1556">
+      <img data-src="cv/page-2.webp" alt="Resume, page 2" width="1100" height="1556">
+    </div>
   </div>
 </div>
 </body>
