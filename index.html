@@ -680,7 +680,7 @@ nav .links .cvp::after{display:none}
 .np-edu-card h3{font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;line-height:1.15;color:var(--white);margin-top:12px}
 .np-edu-inst{font-size:15px;color:var(--grey);line-height:1.5}
 .np-edu-score{display:flex;align-items:baseline;gap:10px;margin-top:10px}
-.np-edu-score .num{font-size:clamp(56px,6vw,96px);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--mint);font-variant-numeric:tabular-nums}
+.np-edu-score .num{font-size:clamp(56px,6vw,96px);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--mint)}
 .np-edu-score small{font-size:14px;color:var(--grey)}
 .np-edu-prog{margin-top:auto;padding-top:10px}
 .np-edu-prog .dp-row{display:flex;justify-content:space-between;font-size:13px;color:var(--grey);margin-bottom:10px}
@@ -1186,6 +1186,57 @@ html:not(.js) #certifications,html:not(.js) #skills,html:not(.js) #experience,ht
 html:not(.js) #certifications .stick,html:not(.js) #skills .stick,html:not(.js) #experience .stick,html:not(.js) #s4 .stick{position:relative;height:auto;display:block;padding:12vh 6vw}
 html:not(.js) .cf-head{position:static;margin-bottom:4vh}
 html:not(.js) .sk-title{position:static;text-align:left;margin-bottom:4vh}
+
+/* ===== Phone type scale (< 600px): one set of sizes for every section =====
+   display 34 · title 21 · lede 17 · body 15 · label 13 · micro 11. "body" prefix outranks the earlier !important mobile rules. */
+@media (max-width:600px){
+  :root{--fs-display:34px;--fs-title:21px;--fs-lede:17px;--fs-body:15px;--fs-label:13px;--fs-micro:11px}
+  body{font-size:var(--fs-body);line-height:1.6}
+
+  /* section headings */
+  body .cs-intro h2,body #work h2,body .exp-left h2,body .sk-title h2,body #education h2,body .cf-head h2,body #contact h2,body .track-title h3{font-size:var(--fs-display) !important;line-height:1.04 !important;letter-spacing:-.035em !important}
+
+  /* hero */
+  body .np-name{font-size:38px !important;line-height:1.02 !important;letter-spacing:-.035em}
+  body .np-status{font-size:var(--fs-label) !important}
+  body .np-role{font-size:16px !important;margin-top:10px}
+  body #reveal{font-size:var(--fs-lede) !important;line-height:1.5 !important}
+  body .btn{font-size:15px !important;min-height:44px;padding:12px 22px !important}
+
+  /* ledes and intro paragraphs */
+  body #work .lede,body #education .lede,body #contact .lede,body .np-about-sub,body .caption p{font-size:var(--fs-lede) !important;line-height:1.5 !important}
+  body #about .fillp{font-size:28px !important;line-height:1.12 !important}
+  body .cs-intro .kicker,body .np-tag{font-size:var(--fs-label) !important;line-height:1.45}
+
+  /* card and item titles */
+  body .psr h3,body .stage h3,body #work .card h3,body .xc h3,body .np-edu-card h3,body .cc b{font-size:var(--fs-title) !important;line-height:1.15 !important;letter-spacing:-.02em !important}
+  body .xc3 h3{font-size:26px !important}
+
+  /* body copy */
+  body .psr p,body .stage p,body #work .card dd,body .xc li,body .xc3 p,body .np-edu-inst,body .np-ct-card li,body .fact span,body .cc p{font-size:var(--fs-body) !important;line-height:1.6 !important}
+  body .xc3 p{max-width:none !important}
+
+  /* labels, meta, chips */
+  body #work .card .type,body .xc .co,body .xc .meta,body .cc .iss,body .np-edu-when,body .stage .n,body #about .flips li,body .sk-title p,body .cf-head p,body .stackline,body .foot2,body .cf-count{font-size:var(--fs-label) !important}
+  body #work .card dt,body .np-sk-grid h3,body .np-card-header,body .np-card-footer{font-size:var(--fs-micro) !important;letter-spacing:.1em}
+  body #work .tags i,body .np-sk-grid li,body .np-chip{font-size:12px !important}
+  body #work .card .more,body .socials a{font-size:14px !important;min-height:44px;display:inline-flex;align-items:center}
+
+  /* big numbers */
+  body .clock{font-size:96px !important}
+  body .fact b{font-size:80px !important}
+  body #work .card .metric{font-size:36px !important}
+  body #work .card .metric small{font-size:12px !important}
+  body .np-edu-score .num{font-size:52px !important}
+  body .marq span{font-size:30px !important}
+  body #mail{font-size:20px !important;word-break:break-all}
+
+  /* these sections set sizes with ID selectors earlier, so match them here */
+  body #certifications .cf-head h2,body #skills .sk-title h2{font-size:var(--fs-display) !important;line-height:1.04 !important}
+  body #certifications .cf-head p,body #skills .sk-title p{font-size:var(--fs-label) !important;line-height:1.5 !important}
+  body #skills .np-sk-grid h3{font-size:var(--fs-micro) !important;letter-spacing:.1em}
+  body #skills .np-sk-grid li{font-size:12px !important}
+}
 </style>
 </head>
 <body>
