@@ -183,7 +183,9 @@ nav .brand{font-weight:700;opacity:1}
 .xc h3{font-size:clamp(32px,3.4vw,54px);letter-spacing:-.035em;line-height:1;margin-top:10px}
 .xc ul{list-style:none;display:grid;gap:12px;margin-top:3vh}
 .xc li{font-size:clamp(16px,1.3vw,19px);line-height:1.45;padding-left:22px;position:relative}
-.xc li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:currentColor;opacity:.6}
+.xc li::before{content:"";position:absolute;left:2px;top:.6em;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.6}
+.xc1 li::before{background:#1F8A64;opacity:1}
+.xc2 li::before{background:var(--mint);opacity:1}
 .xc .meta{display:flex;justify-content:space-between;font-size:15px;opacity:.7;gap:16px;flex-wrap:wrap}
 .xc1{background:#F5F5F3;color:#111}
 .xc2{background:#14215C;color:#F5F5F3}
@@ -776,11 +778,6 @@ nav .links .cvp::after{display:none}
     line-height: 1.15 !important;
     max-width: 100% !important;
   }
-  #about .fillp span {
-    --p: 100% !important;
-    color: var(--ink) !important;
-    -webkit-text-fill-color: var(--ink) !important;
-  }
   #about .np-about-sub {
     font-size: 15px !important;
     line-height: 1.55 !important;
@@ -804,12 +801,7 @@ nav .links .cvp::after{display:none}
     border-radius: 20px !important;
     margin-top: 6px !important;
   }
-  #about .flips {
-    perspective: none !important;
-  }
   #about .flips li {
-    transform: none !important;
-    opacity: 1 !important;
     padding: 12px 0 !important;
     font-size: 14px !important;
     gap: 10px !important;
@@ -1117,6 +1109,8 @@ nav .links .cvp::after{display:none}
   }
 }
 /* ===== Mobile pass (< 860px): hamburger menu, stacked experience, card reveal, lighter paint ===== */
+.in-menu{display:none}
+@media (max-width:860px){nav .links .cvp .in-menu{display:inline}}
 .burger{display:none;position:relative;z-index:2;width:28px;height:22px;padding:0;border:0;background:none;color:inherit;cursor:pointer}
 .burger span{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform .3s var(--ease),opacity .2s}
 .burger span:nth-child(1){top:2px}
@@ -1135,36 +1129,27 @@ nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   nav .links a:not(.cvp){border-bottom:1px solid var(--line)}
   nav .links .cvp{align-self:flex-start;margin-top:28px;padding:10px 18px;font-size:16px}
   nav .links .cvp .t{display:inline}
+  /* menu CV link: a full-width primary button ("body" outranks the older small-screen pill rule) */
+  body nav .links .cvp{align-self:stretch;justify-content:center;gap:10px;margin-top:32px;height:52px;padding:0 20px !important;font-size:16px !important;font-weight:600;border-radius:14px;background:var(--mint);color:#06120E;box-shadow:none}
+  body nav .links .cvp .ic{width:18px;height:18px}
 
   /* about card: no backdrop blur while scrolling (expensive on phones) */
   .np-about-card{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.92)}
 
-  /* projects: each card fades up as it arrives (JS adds .mrv) */
-  /* fade-up reveal for sections that are static on phones (JS adds .mrv, then .on in view) */
+  /* fade-up reveal for the few blocks that have no scroll animation of their own (JS adds .mrv, then .on in view) */
   .mrv{transition:opacity .7s var(--ease),transform .7s var(--ease) !important}
   .mrv:not(.on){opacity:0 !important;transform:translateY(36px) !important}
   @media (prefers-reduced-motion:reduce){.mrv:not(.on){transform:none !important}}
 
-  /* experience: show every role as a plain stacked list, no fly-away deck */
-  #experience{height:auto !important}
-  #experience .stick{position:relative !important;height:auto !important;overflow:visible;display:grid !important;padding:12vh 6vw !important}
-  .exp-year,.dots{display:none !important}
-  .deck{height:auto !important;min-height:0 !important;display:flex !important;flex-direction:column-reverse;gap:16px}  /* newest role first, "What's next" last */
-  .xc .meta{margin-top:18px}
+  /* experience: the fly-away deck, sized so the tallest card fits a phone screen */
+  .deck{height:min(440px,62svh) !important;min-height:380px !important}
+  .xc .meta{margin-top:14px}
 
   /* projects: the caption collides with the overlapping screenshot on narrow cards; the window bar already names it */
   #work .shot figcaption{display:none !important}
 
-  /* certifications: a swipeable row instead of the 3D cover flow, which clips cards on phones */
-  #certifications{height:auto !important}
-  #certifications .stick{position:relative !important;height:auto !important;display:block !important;padding:12vh 0 10vh !important}
-  #certifications .cf-head{position:static !important;padding:0 6vw;margin-bottom:4vh}
-  .flow{display:flex !important;gap:14px;height:auto !important;margin-top:0 !important;padding:6px 6vw 20px;overflow-x:auto;scroll-snap-type:x mandatory;perspective:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .flow::-webkit-scrollbar{display:none}
-  .cc{position:relative !important;left:auto !important;top:auto !important;margin:0 !important;flex:0 0 78vw;width:78vw !important;height:300px !important;transform:none !important;opacity:1 !important;z-index:auto !important;scroll-snap-align:center}
-  .cf-count{position:static !important;margin-top:1vh}
-  .xc{position:relative !important;inset:auto;transform:none !important;opacity:1 !important;filter:none !important;pointer-events:auto !important;z-index:auto !important}
-  .xc>*{opacity:1 !important}
+  /* projects: cards stick and stack; JS sets --stick so a card taller than the screen scrolls fully into view before the next one covers it */
+  body #work .card{position:sticky !important;top:var(--stick,72px) !important;transform-origin:center top}
 }
 
 /* ===== Without JavaScript: show every section in its final state, no hidden or overlapping parts ===== */
@@ -1275,7 +1260,7 @@ html:not(.js) .sk-title{position:static;text-align:left;margin-bottom:4vh}
 </svg>
 <div class="grain" aria-hidden="true"></div><div class="pbar" id="pbar"></div>
 <a class="skip" href="#about">Skip to content</a>
-<nav aria-label="Main"><a class="brand" href="#top">Uzair Warraich</a><div class="links" id="navLinks"><a href="#about">About</a><a href="#case-study">Case study</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a class="cvp" href="Muhammad_Uzair_Warraich_CV.pdf" download data-cv><svg class="ic"><use href="#i-download"/></svg><span class="t">CV</span></a></div><button type="button" class="burger" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<nav aria-label="Main"><a class="brand" href="#top">Uzair Warraich</a><div class="links" id="navLinks"><a href="#about">About</a><a href="#case-study">Case study</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a class="cvp" href="Muhammad_Uzair_Warraich_CV.pdf" download data-cv><svg class="ic"><use href="#i-download"/></svg><span class="t"><span class="in-menu">Download </span>CV</span></a></div><button type="button" class="burger" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
 
 <header class="scene" id="s1"><div class="stick" id="top">
   <div class="np-hero">
@@ -1516,8 +1501,7 @@ function frame(){
   const pr = scrollY / (document.documentElement.scrollHeight - innerHeight);
   const stageLit = stages.map(st => { const r = st.getBoundingClientRect(); return r.left < innerWidth * .5 && r.right > innerWidth * .3; });
   let act = null; navLinks.forEach(([a, sec]) => { if (sec && sec.getBoundingClientRect().top < innerHeight * .5) act = a; });
-  const desktop = !reduce && innerWidth >= 860;
-  const cardT = desktop ? cards.map((c,i) => {
+  const cardT = !reduce ? cards.map((c,i) => {
     const next = cards[i+1]; if (!next) return null;
     const d = next.getBoundingClientRect().top - c.getBoundingClientRect().top;
     return Math.min(1, Math.max(0, 1 - d / vh()));
@@ -1539,9 +1523,9 @@ function frame(){
   facts.forEach((f,i) => f.classList.toggle('on', i === idx));
   if (cardT) cards.forEach((c,i) => {
     if (cardT[i] === null) return;
-    c.style.transform = `scale(${1 - cardT[i]*0.06})`; c.style.filter = `brightness(${1 - cardT[i]*0.25})`;
+    c.style.transform = `scale(${1 - cardT[i]*0.06})`;
+    c.style.filter = innerWidth >= 860 ? `brightness(${1 - cardT[i]*0.25})` : '';  // filters are costly to repaint on phones
   });
-  else if (innerWidth < 860) cards.forEach(c => { if (c.style.transform) { c.style.transform = ''; c.style.filter = ''; } });
 }
 addEventListener('resize', measureTrack); addEventListener('resize', frame);
 measureTrack(); scrollTasks.push(frame); frame();
@@ -1568,21 +1552,26 @@ function scenes(){
   // contact words rise
   const pc=clamp((vh-contactS.getBoundingClientRect().top)/(vh*.9));
   wds.forEach((w,i)=>{const t=reduce?1:ease(clamp(pc*1.6-i*.12));w.style.transform=`translateY(${(1-t)*110}%)`;w.style.opacity=t;});
-  // phones: about and experience are plain stacked sections (CSS), so skip their scroll maths
-  if (innerWidth < 860) { fillp.style.setProperty('--p','100%'); flips.forEach(f => f.classList.add('on')); return; }
   // about: text fill then facts flip
-  const pa=prog(aboutS);
-  fillp.style.setProperty('--p',clamp(pa/.7)*100+'%');
-  flips.forEach((f,i)=>f.classList.toggle('on',pa>.08+i*.1));
-  // experience: cards fly away one by one
+  if (innerWidth < 860) {
+    // phones: about is not pinned, so the fill and the flips follow the text's own position on screen
+    const ft=fillp.getBoundingClientRect().top, tops=flips.map(f=>f.getBoundingClientRect().top);
+    fillp.style.setProperty('--p',clamp((vh*.85-ft)/(vh*.45))*100+'%');
+    flips.forEach((f,i)=>f.classList.toggle('on',tops[i]<vh*.9));
+  } else {
+    const pa=prog(aboutS);
+    fillp.style.setProperty('--p',clamp(pa/.7)*100+'%');
+    flips.forEach((f,i)=>f.classList.toggle('on',pa>.08+i*.1));
+  }
+  // experience: cards fly away one by one (under reduced motion they still advance, by cross-fading in place)
   const pe=prog(expS),n=xcs.length;
   xcs.forEach((c,i)=>{
-    const out=(reduce||i===n-1)?0:clamp((pe-.08-i*.42)/.3);          // this card leaving
+    const out=(i===n-1)?0:clamp((pe-.08-i*.42)/.3);          // this card leaving
     const prev=i===0?1:clamp((pe-.08-(i-1)*.42)/.3);       // previous card leaving => this one rises
     const e=ease(out),rise=ease(prev);
     const depth=i===0?0:(1-rise);
     c.style.zIndex=n-i;
-    c.style.transform=`translateY(${-e*115 + depth*6}%) rotate(${-e*9}deg) scale(${1-depth*.07})`;
+    c.style.transform=reduce?'none':`translateY(${-e*115 + depth*6}%) rotate(${-e*9}deg) scale(${1-depth*.07})`;
     c.style.filter='';
     c.style.pointerEvents = out > 0.8 ? 'none' : 'auto';
     c.style.opacity=(i===n-1?1:1-clamp((out-.55)/.3))*(1-depth*.85);
@@ -1637,11 +1626,14 @@ if(fine&&!reduce)document.querySelectorAll('.mag').forEach(b=>{
       r1.style.transform = `rotateX(-8deg) rotateY(${-rot}deg)`; r2.style.transform = `rotateX(-8deg) rotateY(${rot*.8}deg)`;
       const front = Math.round(((rot%360)/360)*coreR.length) % coreR.length; skcap.innerHTML = `<b>${coreR[front]}</b> · ${DESC[coreR[front]]}`;
     }
-    if (innerWidth < 860) return;  // phones use a swipeable row (CSS), counted on its own scroll below
-    const posn = progT(cs)*(ccs.length-1), gap = Math.min(240, innerWidth*.26);
+    // phones: neighbours sit further out, turn less, shrink and fade, so the middle card reads cleanly
+    const mob = innerWidth < 860;
+    const posn = progT(cs)*(ccs.length-1), gap = mob ? innerWidth*.5 : Math.min(240, innerWidth*.26);
     ccs.forEach((c,i)=>{ const d = i-posn, ad = Math.abs(d);
-      c.style.transform = `translateX(${d*gap}px) translateZ(${-ad*160}px) rotateY(${Math.max(-55,Math.min(55,-d*40))}deg) scale(${1-Math.min(ad,3)*.04})`;
-      c.style.zIndex = 100-Math.round(ad*10); c.style.opacity = ad>3.5 ? 0 : 1-Math.max(0,ad-2)*.4; });
+      const turn = Math.max(-55,Math.min(55,-d*40)) * (mob ? .6 : 1), shrink = Math.min(ad,3) * (mob ? .1 : .04);
+      c.style.transform = `translateX(${d*gap}px) translateZ(${-ad*160}px) rotateY(${turn}deg) scale(${1-shrink})`;
+      c.style.zIndex = 100-Math.round(ad*10);
+      c.style.opacity = mob ? Math.max(0, 1-ad*.45) : (ad>3.5 ? 0 : 1-Math.max(0,ad-2)*.4); });
     cfn.textContent = Math.round(posn)+1;
   };
   scrollTasks.push(frameT);
@@ -1728,20 +1720,19 @@ document.getElementById('skToggle').addEventListener('click', e => {
   addEventListener('resize', () => { if (innerWidth >= 860) setOpen(false); });
 })();
 
-// mobile: sections that are static on phones fade up as they come into view (also under reduced motion; CSS drops the slide)
+// mobile: blocks without a scroll animation of their own fade up as they come into view (also under reduced motion; CSS drops the slide)
 (function(){
   if (innerWidth >= 860) return;
   const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io2.unobserve(e.target); } }), { threshold: .12 });
-  document.querySelectorAll('#about .np-about-main, #about .np-about-card, #work .card, #experience .exp-left, #experience .xc, #skills .np-sk-grid > div, #certifications .flow, #contact .np-ct-card').forEach(c => { c.classList.add('mrv'); io2.observe(c); });
-  // certifications row: swipe hint and "n of 8" follows the card in the middle
-  const flow = document.getElementById('flow'), cfn = document.getElementById('cfn'), cards = [...flow.children];
-  document.querySelector('.cf-head p').textContent = 'Swipe through eight courses in AI, LLMs and data.';
-  flow.addEventListener('scroll', () => {
-    const mid = flow.scrollLeft + flow.clientWidth / 2;
-    let best = 0; cards.forEach((c, i) => { if (Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid) < Math.abs(cards[best].offsetLeft + cards[best].offsetWidth / 2 - mid)) best = i; });
-    cfn.textContent = best + 1;
-  }, { passive: true });
-  cfn.textContent = 1;
+  document.querySelectorAll('#about .np-about-main, #skills .np-sk-grid > div, #contact .np-ct-card').forEach(c => { c.classList.add('mrv'); io2.observe(c); });
+})();
+
+// mobile project stack: each card sticks once its bottom reaches the screen, so the whole card is seen before the next covers it
+(function(){
+  const cards = [...document.querySelectorAll('#work .card')];
+  const setStick = () => cards.forEach(c => c.style.setProperty('--stick', Math.min(72, innerHeight - c.offsetHeight - 12) + 'px'));
+  setStick(); addEventListener('resize', setStick); addEventListener('load', setStick);
+  if (document.fonts) document.fonts.ready.then(setStick);
 })();
 </script>
 
